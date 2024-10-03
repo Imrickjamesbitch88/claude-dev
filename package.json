@@ -112,22 +112,22 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run package",
-    "compile": "npm run check-types && npm run lint && node esbuild.js",
-    "watch": "npm-run-all -p watch:*",
+    "vscode:prepublish": "yarn package",
+    "compile": "yarn check-types && yarn lint && node esbuild.js",
+    "watch": "yarn run-p watch:*",
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package": "npm run build:webview && npm run check-types && npm run lint && node esbuild.js --production",
+    "package": "yarn build:webview && yarn check-types && yarn lint && node esbuild.js --production",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "pretest": "yarn compile-tests && yarn compile && yarn lint",
     "check-types": "tsc --noEmit",
     "lint": "eslint src --ext ts",
     "test": "vscode-test",
-    "install:all": "npm install && cd webview-ui && npm install",
-    "start:webview": "cd webview-ui && npm run start",
-    "build:webview": "cd webview-ui && npm run build",
-    "test:webview": "cd webview-ui && npm run test",
+    "install:all": "yarn install && yarn --cwd webview-ui install",
+    "start:webview": "yarn --cwd webview-ui start",
+    "build:webview": "yarn --cwd webview-ui build",
+    "test:webview": "yarn --cwd webview-ui test",
     "publish:marketplace": "vsce publish && ovsx publish"
   },
   "devDependencies": {
@@ -175,5 +175,6 @@
     "tree-sitter-wasms": "^0.1.11",
     "turndown": "^7.2.0",
     "web-tree-sitter": "^0.22.6"
-  }
+  },
+  "packageManager": "yarn@4.5.0+sha512.837566d24eec14ec0f5f1411adb544e892b3454255e61fdef8fd05f3429480102806bac7446bc9daff3896b01ae4b62d00096c7e989f1596f2af10b927532f39"
 }
